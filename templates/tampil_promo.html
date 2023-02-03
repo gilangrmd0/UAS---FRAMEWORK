@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block konten %}
+<head>
+    <link href="{% static 'assets/css/font-awesome.css' %}" rel="stylesheet" /> 
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+
+
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+        <div id="page-inner" >
+           <center><h1> Daftar Menu Promo </h1></center> 
+           
+
+            <table border="" class="table table-bordered">
+                <tr> 
+                    <td>Kode Promo</td>
+                    <td>Nama </td>
+                    <td>Stok </td>
+                    <td>Harga </td>
+                    <td>Link Gambar </td>
+                    <td>Jenis </td>
+                </tr>
+                {% for promo in promos %}
+                <tr>
+                    <td><a href ="{% url 'ubah_promo' promo.id%}">{{ promo.kodepromo }}</a></td>
+                    <td>{{ promo.nama }}</td>
+                    <td>{{ promo.stok }}</td>
+                    <td>{{ promo.harga }}</td>
+                    <td>{{ promo.link_gbr }}</td>
+                    <td>{{ promo.jenisss_id }}</td>
+                    <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#hapus-{{ promo.id }}">Hapus</button></td>
+                </tr>
+                <!-- Modal-->>
+                <div class="modal fade" id="hapus-{{ promo.id }}" tabindex="-1" arial-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Yakin akan dihapus ?</h1>
+                        <button type="button" class="btn close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Nama promo : {{ promo.nama }}
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn-btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <a href="{% url 'hapus_promo' promo.id %}" class="btn btn-danger">Yakin</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </table>  
+            <li class="nav-item">
+                <a class="{% if navbar == 'tambah_promo' %} active {% endif %}"href="/tambah_promo" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Tambah Promo</a>
+              </li>
+    {% endblock %}
+
+    
+</body>
+
+

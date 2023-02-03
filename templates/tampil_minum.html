@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block konten %}
+<head>
+    <link href="{% static 'assets/css/font-awesome.css' %}" rel="stylesheet" /> 
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+
+
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+        <div id="page-inner" >
+           <center><h1> Daftar Menu Minuman </h1></center> 
+           
+
+            <table border="" class="table table-bordered">
+                <tr> 
+                    <td>Kode Minuman </td>
+                    <td>Nama </td>
+                    <td>Stok </td>
+                    <td>Harga </td>
+                    <td>Link Gambar </td>
+                    <td>Jenis </td>
+                </tr>
+                {% for minuman in minums %}
+                <tr>
+                    <td><a href ="{% url 'ubah_minum' minuman.id%}">{{ minuman.kodeminuman }}</a></td>
+                    <td>{{ minuman.nama }}</td>
+                    <td>{{ minuman.stok }}</td>
+                    <td>{{ minuman.harga }}</td>
+                    <td>{{ minuman.link_gbr }}</td>
+                    <td>{{ minuman.jeniss_id }}</td>
+                    <td><button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#hapus-{{ minuman.id }}">Hapus</button></td>
+                </tr>
+                <!-- Modal-->>
+                <div class="modal fade" id="hapus-{{ minuman.id }}" tabindex="-1" arial-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Yakin akan dihapus ?</h1>
+                        <button type="button" class="btn close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Nama minuman : {{ minuman.nama }}
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn-btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <a href="{% url 'hapus_minum' minuman.id %}" class="btn btn-danger">Yakin</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </table>  
+            <li class="nav-item">
+                <a class="{% if navbar == 'tambah_minum' %} active {% endif %}"href="/tambah_minum" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Tambah Minuman</a>
+              </li>
+    {% endblock %}
+
+    
+</body>
+
+

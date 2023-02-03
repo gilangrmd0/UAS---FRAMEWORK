@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block konten %}
+
+<div class="album py-5 bg-light">
+<div class="container">
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+<div class="col">
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'img/MSN.jpeg' %}" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Menu Sambal Nusantara</h5>
+            <p class="card-text">Tahukah kamu, sekarang KFC merilis menu Sambal Nusantara dengan dua pilihan cita rasa yang berbeda, yakni sambal korek dan sambal matah khas Bali. Tentu, kedua sambal ini memiliki cita rasa pedas yang menggugah selera.</p>
+            <a href="#" class="btn btn-primary">Check Out</a>
+        </div>
+        </div>
+</div>
+
+<div class="col">
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'img/SB.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">KFC Snack Bucktet</h5>
+            <p class="card-text">KFC juga punya menu andalan untuk kamu yang doyan ngemil, nih. Ya, ada KFC Snack Bucket. Menu ini merupakan menu bucket dengan isian beberapa snack seperti chicken strip, Fun Fries, KFC Winger dan chicken ball</p>
+            <a href="#" class="btn btn-primary">Check Out</a>
+        </div>
+        </div>
+</div>
+<div class="col">
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'img/CP.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Cream puff</h5>
+            <p class="card-text">Kalau kamu pencinta makanan manis, kamu bisa coba menu pilihan dari KFC bernama KFC Cream Puff. Menu ini merupakan pastry berisikan krim vanilla. KFC Cream Puff memiliki rasa manis dan legit dari krim vanilla-nya, serta punya tekstur renyah dari pastry-nya.</p>
+            <a href="#" class="btn btn-primary">Check Out</a>
+        </div>
+      </div>
+</div>
+
+<div class="col">
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'img/cc.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Classic Combo</h5>
+            <p class="card-text">Selanjutnya, ada menu istimewa dari KFC, yaitu Classic Combo. Menu ini adalah salah satu menu KFC yang hadir di tahun '70-an silam. Classic Combo sendiri terdiri dari beberapa jenis hidangan seperti ayam goreng KFC, jagung, roti, coleslaw dan mashed potato.</p>
+            <a href="#" class="btn btn-primary">Check Out</a>
+        </div>
+        </div>
+</div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
